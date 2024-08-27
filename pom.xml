@@ -156,7 +156,7 @@
                                 <java8>true</java8>
                                 <interfaceOnly>true</interfaceOnly>
                             </configOptions>
-                            <inputSpec>${project.basedir}/src/main/resources/specs/apiDefinition.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/specs/customer-api-v1.0.0.yaml</inputSpec>
                             <output>${project.build.directory}/generated-sources/</output>
                             <apiPackage>com.home-service.service.v2.api</apiPackage>
                             <modelPackage>com.home-service.service.v2.model</modelPackage>

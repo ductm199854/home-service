@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="create-table-house" author="alpha-house">
+        <createTable tableName="APP_HOUSE">
+            <column name="HOUSE_ID" type="NVARCHAR(200)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ADDRESS_STREET_DESCRIPTION" type="NVARCHAR(200)"/>
+            <column name="DISTRICT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CITY" type="NVARCHAR(70)"/>
+            <column name="DISTRICT_NAME" type="NVARCHAR(70)"/>
+            <column name="LOCATION_LATITUDE" type="NVARCHAR(100)"/>
+            <column name="LOCATION_LONGITUDE" type="NVARCHAR(100)"/>
+            <column name="HOUSE_STYLE" type="NVARCHAR(50)"/>
+            <column name="SIZE" type="NVARCHAR(200)"/>
+            <column name="FLOOR" type="INT"/>
+            <column name="MAINTENANCE" type="NVARCHAR(50)"/>
+            <column name="ADDITIONS" type="VARCHAR(250)"/>
+            <column name="CREATED_AT" type="DATE"/>
+            <column name="UPDATED_AT" type="DATE"/>
+            <column name="CREATED_BY" type="NVARCHAR(50)"/>
+            <column name="UPDATED_BY" type="NVARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+
+
+</databaseChangeLog>

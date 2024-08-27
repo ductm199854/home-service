@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="create-table-sale-history" author="alpha-home">
+        <createTable tableName="APP_SALE_HISTORY">
+            <column name="HISTORY_ID" type="NVARCHAR(200)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="HOUSE_ID" type="NVARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALE_PRICE" type="BIGINT"/>
+            <column name="SALE_DATE" type="DATE"/>
+            <column name="SALE_STATUS" type="NVARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TAX" type="BIGINT"/>
+            <column name="CURRENCY" type="NVARCHAR(3)" defaultValue="VND"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="APP_SALE_HISTORY"
+                                 baseColumnNames="HOUSE_ID"
+                                 constraintName="FK_APP_SALE_HISTORY_APP_HOUSE"
+                                 referencedTableName="APP_HOUSE"
+                                 referencedColumnNames="HOUSE_ID"/>
+    </changeSet>
+
+</databaseChangeLog>

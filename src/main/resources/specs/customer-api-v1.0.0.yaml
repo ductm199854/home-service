@@ -1,0 +1,90 @@
+swagger: "2.0"
+info:
+  title: Customer Info
+  description: Specs for Customer Info
+  version: 1.0.0
+
+tags:
+  - name: Customer Info Service
+    description: Service API for Customer
+
+paths:
+  /info/{customer_id}:
+    get:
+      operationId: getCustomerDetail
+      tags:
+        - information
+      parameters:
+        - in: path
+          name: customer_id
+          type: string
+          required: true
+      summary: "API to get customer details by Id"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "detail"
+          schema:
+            $ref: "#/definitions/Customer"
+        "400":
+          description: "error detail in case of Bad request"
+          schema:
+            $ref: "#/definitions/error"
+        "500":
+          description: "error detail in case of server error"
+          schema:
+            $ref: "#/definitions/error"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: unlimited
+
+  /customer:
+    post:
+      tags:
+        - Customer Detail
+      summary: "API to create customer details by his/her Id"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "customer details"
+          schema:
+            $ref: "#/definitions/Customer"
+        "400":
+          description: "error detail in case of Bad request"
+          schema:
+            $ref: "#/definitions/error"
+        "500":
+          description: "error detail in case of server error"
+          schema:
+            $ref: "#/definitions/error"
+      operationId: createCustomerDetail
+      parameters:
+        - in: body
+          name: student
+          schema:
+            $ref: "#/definitions/Customer"
+          required: true
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: unlimited
+
+definitions:
+  error:
+    properties:
+      error_description:
+        description: Error Description
+        type: string
+      error:
+        description: Error Code
+        type: string
+  Customer:
+    properties:
+      id:
+        description: customer Id
+        type: integer
+      name:
+        description: customer name
+        type: string
+      age:
+        description: age of Customer
+        type: integer
